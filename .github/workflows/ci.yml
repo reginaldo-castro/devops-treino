@@ -14,8 +14,8 @@ jobs:
     - name: Checkout do código
       uses: actions/checkout@v3
 
-    - name: Build da imagem Docker
-      run: docker build -t devops-app:ci
+    - name: Build imagem Docker
+      run: docker build -t devops-app:ci ./app
 
     - name: Rodar o container de teste
       run: docker run devops-app:ci
