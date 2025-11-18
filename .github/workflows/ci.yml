@@ -1,0 +1,22 @@
+name: CI DevOps
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v3
+
+    - name: Build da imagem Docker
+      run: docker build -it devops-app:ci
+
+    - name: Rodar o container de teste
+      run: docker run devops-app:ci
+
